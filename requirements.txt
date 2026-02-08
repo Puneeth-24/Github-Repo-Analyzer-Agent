@@ -1,4 +1,0 @@
-gitpython
-langchain
-langchain-google-genai
-python-dotenv

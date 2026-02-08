@@ -1,12 +1,16 @@
 from agent.repo_loader import clone_repo
 from agent.file_scanner import scan_repo
 from agent.context_builder import build_context
-import json
+from agent.llm_reasoner import analyze_repo
 
-url = "https://github.com/Puneeth-24/Shinsen-AI.git"
+
+url = input("Enter GitHub repo URL: ")
 
 repo_path = clone_repo(url)
 tree = scan_repo(repo_path)
 context = build_context(repo_path, tree)
 
-print(json.dumps(context, indent=2))
+analysis = analyze_repo(context)
+
+print("\n===== Gemini Analysis =====\n")
+print(analysis)
